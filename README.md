@@ -4,6 +4,7 @@ Application hors ligne pour suivre les **entrées** et **sorties** de marchandis
 Stock actuel = stock de départ + total des entrées − total des sorties.
 
 ## Fonctions
+- **Calcul** : calculatrice (parenthèses, %, mémoire, historique, clavier), calcul de palettes et colis, conversions poids / volume / longueur, et bouton pour reprendre un résultat comme quantité dans la saisie.
 - Saisie rapide d’une entrée ou d’une sortie, avec aperçu du stock avant et après.
 - Alerte si une sortie rend le stock négatif.
 - Stock par référence : entrées, sorties, stock actuel, alerte de seuil minimum.

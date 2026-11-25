@@ -101,11 +101,11 @@ form .btn+.btn{margin-top:8px; width:100%}
 .tot{display:flex; flex-wrap:wrap; gap:4px 16px; margin-bottom:10px; font-weight:700}
 
 .tabs{
-  position:fixed; left:0; right:0; bottom:0; z-index:5; display:grid; grid-template-columns:repeat(4,1fr);
+  position:fixed; left:0; right:0; bottom:0; z-index:5; display:grid; grid-template-columns:repeat(5,1fr);
   background:var(--panel); border-top:1px solid var(--line); padding-bottom:env(safe-area-inset-bottom);
 }
 .tabs button{
-  min-height:64px; font:inherit; font-size:14px; font-weight:600; color:var(--mute);
+  min-height:64px; padding:0 2px; font:inherit; font-size:13px; font-weight:600; color:var(--mute);
   background:none; border:0; border-top:4px solid transparent; cursor:pointer;
 }
 .tabs button[aria-current=page]{color:var(--ink); border-top-color:var(--acc)}
@@ -119,3 +119,30 @@ form .btn+.btn{margin-top:8px; width:100%}
 #toast.show{opacity:1; transform:translate(-50%,0)}
 
 @media (prefers-reduced-motion:reduce){#toast{transition:none}}
+
+/* Calculatrice */
+.disp{background:var(--ink); color:#fff; border-radius:var(--r); padding:12px 14px; margin-bottom:10px; text-align:right; min-height:98px}
+.cexpr{font-size:18px; opacity:.75; overflow-wrap:anywhere; min-height:26px}
+.cres{font-size:38px; font-weight:800; line-height:1.2; overflow-wrap:anywhere}
+.memrow,.keys{display:grid; grid-template-columns:repeat(4,1fr); gap:8px}
+.memrow{margin-bottom:6px}
+.cmem{min-height:20px; margin-bottom:6px}
+.k{
+  min-height:62px; font:inherit; font-size:24px; font-weight:700; color:var(--ink);
+  background:#fff; border:1.5px solid var(--line); border-radius:var(--r); cursor:pointer;
+}
+.k:active{background:var(--line)}
+.k:focus-visible{outline:3px solid var(--acc); outline-offset:2px}
+.k.op{background:#E6ECF2; color:var(--acc)}
+.k.fn{color:var(--out)}
+.k.mem{min-height:40px; font-size:14px}
+.k.eq{grid-column:1/-1; background:var(--ink); border-color:var(--ink); color:#fff}
+.calc .btn{width:100%; margin-top:10px}
+.hrow{
+  display:flex; justify-content:space-between; gap:10px; width:100%; min-height:44px; margin-bottom:6px;
+  padding:8px 12px; font:inherit; text-align:left; color:var(--ink); cursor:pointer;
+  background:var(--panel); border:1px solid var(--line); border-radius:8px;
+}
+.hrow b{white-space:nowrap}
+.pres{margin-top:4px; font-size:16px}
+.pres div{margin-bottom:4px}

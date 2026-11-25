@@ -54,9 +54,10 @@ function renderSum() {
 function render() {
   document.querySelectorAll("#tabs button").forEach(b =>
     b.setAttribute("aria-current", b.dataset.tab === tab ? "page" : "false"));
-  $("#view").innerHTML = { saisie: vSaisie, stock: vStock, histo: vHisto, refs: vRefs }[tab]();
+  $("#view").innerHTML = { saisie: vSaisie, stock: vStock, histo: vHisto, calc: vCalc, refs: vRefs }[tab]();
   renderSum();
   if (tab === "saisie") updatePreview();
+  if (tab === "calc") initCalc();
 }
 
 function moveRow(m, del) {
@@ -73,6 +74,7 @@ function moveRow(m, del) {
 /* ---------- Onglet Saisie ---------- */
 function vSaisie() {
   const opts = S.refs.map(r => `<option value="${esc(r.code)}">${esc(r.name)}</option>`).join("");
+  const qv = draft.qty || ""; delete draft.qty;
   const recent = S.moves.slice(-5).reverse().map(m => moveRow(m, false)).join("")
     || `<p class="empty">Aucun mouvement. Enregistrez votre première entrée ou sortie ci-dessus.</p>`;
   return `<form id="f" class="card" autocomplete="off">
@@ -82,7 +84,7 @@ function vSaisie() {
     </div>
     <label>Référence<input id="code" list="refs" required autocapitalize="characters" value="${esc(draft.code)}"></label>
     <datalist id="refs">${opts}</datalist>
-    <label>Quantité<input id="qty" type="number" inputmode="decimal" step="any" min="0" required></label>
+    <label>Quantité<input id="qty" type="number" inputmode="decimal" step="any" min="0" required value="${esc(qv)}"></label>
     <label>Date<input id="date" type="date" required value="${esc(draft.date)}"></label>
     <label>Note (facultatif)<input id="note" placeholder="Bon de livraison, client, motif"></label>
     <div id="preview" class="preview"></div>

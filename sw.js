@@ -1,6 +1,6 @@
 // Changez le numéro de version à chaque mise à jour des fichiers pour forcer le rafraîchissement.
-const CACHE = "stock-magasin-v1";
-const FILES = ["./", "index.html", "style.css", "app.js", "manifest.json", "icon.svg"];
+const CACHE = "stock-magasin-v2";
+const FILES = ["./", "index.html", "style.css", "calc.js", "app.js", "manifest.json", "icon.svg"];
 
 self.addEventListener("install", e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(FILES)).then(() => self.skipWaiting()));
