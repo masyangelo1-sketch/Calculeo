@@ -1,0 +1,14 @@
+{
+  "name": "Stock magasin",
+  "short_name": "Stock",
+  "description": "Entrées, sorties et stock par référence, hors ligne.",
+  "lang": "fr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#EEF1F4",
+  "theme_color": "#14222E",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
